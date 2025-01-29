@@ -16,7 +16,7 @@ for paru :
 ```
 paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd-git diodon betterlockscreen xidlehook plank
 ```
-- For the gtk theme and icons i use flatcolor theme and lina-nord-dark theme they came with [wpgtk](https://github.com/deviantfero/wpgtk/wiki/Installation) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
+- For the gtk theme and icons i use flatcolor theme and lina-nord-dark theme they came with [wpgtk here](https://github.com/deviantfero/wpgtk/wiki/Installation) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
 - For themeing [chromium based browsers](https://github.com/metafates/ChromiumPywal) and firefox [python-pywalfox](https://github.com/Frewacom/pywalfox/) install the extension for every one of them
 - the font : ```ttf-iosevka-nerd```
 ## For installation 
