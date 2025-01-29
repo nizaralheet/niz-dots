@@ -21,19 +21,6 @@ end
 #set -x QT_STYLE_OVERRIDE kvantum
 
 
-function qwal
-    if test -e "$HOME/wallpapers/wallpaper$argv[1].jpg"
-        wpg -s ~/wallpapers/wallpaper$argv[1].jpg
-        sleep 1
-        qtile cmd-obj -o cmd -f reload_config
-        gtk-update-icon-cache -f -t ~/.local/share/icons/flattrcolor
-        ./.local/share/icons/Testo/scripts/replace_script.sh
-        notify-send -i ~/wallpapers/wallpaper$argv[1].jpg "Theme is applied successfully" "wallpaper $argv[1] is now set as a background"
-    else
-        echo "Failed to apply theme : no image with this name !"
-        notify-send "Theme is not applied successfully" "\nThere is no image with the name wallpaper$argv[1].jpg"
-    end
-end
 
 function fish_prompt
     set_color red
