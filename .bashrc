@@ -11,15 +11,6 @@ alias vim='lvim'
 alias lvim=' /home/nizar/.local/bin/lvim'
 
 
-# most important part of the rice 
-function pywal() {
-  killall dunst ; 
-  wal -i "wallpapers/wallpaper$1.jpg" &&
-  qtile cmd-obj -o cmd -f reload_config &&
-  wpg -s ~/wallpapers/wallpaper$1.jpg ; dunst & # you could add" pywalfox update " if use firefox
-
-}
-
 
 
 PS1=$'\n\[\e[37m\]\u256D\u2500\u2500\[\e[35m\] \u222B ( \u ) \[\e[37m\]\u2500\[\e[48m\] [ \W ]\[\e[37m\]\n\u2570\u2500\u2500\u2500\u25b6\[\e[37m\] '
