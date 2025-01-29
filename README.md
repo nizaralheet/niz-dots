@@ -21,6 +21,7 @@ paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-
 - the font : ```ttf-iosevka-nerd```
 ## For installation 
 - make sure to backup you config files first
+- And make sure that you have all the Dependencies
 - then run this :
  ```
  git clone https://github.com/nizaralheet/niz-dots
