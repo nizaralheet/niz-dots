@@ -1,26 +1,32 @@
-# pywal-wpgtk dynamic RICE
-
-## Important notes !!!
+# wpgtk dynamic RICE
 - all config files that i have customized for every thing im my system are here
+
+## ⚠️ Important notes ⚠️
+- QTILE >= 30.0
 - make sure to make the autostart.sh excutable by running this command ```chmod +x .config/qtile/autostart.sh```
-- you could disable the blur or the animaton from picom config if you feel your machine is slow , it is disabled by default
-- to make dunst sync with pywal you have to make a link like this 🔻 so any change in pywal or wpgtk changes dunst theme
-```
-ln -s .cache/wal/dunstrc .config/dunst/dunstrc
-```
- 
+
 ## Dependencies 
+
 -Run this command on arch to install the Dependencies 
+for yay :
 ```
-yay -S --needed gdk-pixbuf2  glibc  libnotify  librsvg  pango  python python-cairocffi  python-cffi  python-gobject  python-xcffib wlroots alsa-utils lm_sensors python-dbus-next python-iwlib python-psutil python-pywayland python-pywlroots python-xkbcommon xorg-xwayland qtile-extras imagemagick python-pywal wpgtk feh libxdg-basedir  startup-notification  libxkbcommon-x11 xcb-util-wm  xcb-util-xrm  librsvg  xcb-util-cursor dunst libxinerama  dbus systemd  wayland  libxss  pango  gdk-pixbuf2 libxrandr  glib2 libnotify upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty 
+yay -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd diodon betterlockscreen
 ```
-
-- I use this [fdev31 picom](https://github.com/fdev31/picom) fork , but you can you use any like FT-laps fork.
-- For text editor I use [lunarvim](https://github.com/LunarVim/LunarVim) .
-- For the gtk theme and icons i use flatcolor theme and flattrcolor icons they are in  [wpgtk-templates](https://github.com/deviantfero/wpgtk-templates) and i use [tela-cirle](https://github.com/vinceliuice/Tela-circle-icon-theme) for rofi 
-- For themeing [chromium based browsers](https://github.com/metafates/ChromiumPywal) and [firefox](https://github.com/Frewacom/pywalfox/) install the extension for every one of them
-- the font : ```ttf-sourcecodepro-nerd```
-
+for paru :
+```
+paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd-git diodon betterlockscreen
+```
+- For the gtk theme and icons i use flatcolor theme and Promix icons they are in  [wpgtk-templates](https://github.com/deviantfero/wpgtk-templates) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
+- For themeing [chromium based browsers](https://github.com/metafates/ChromiumPywal) and firefox [python-pywalfox](https://github.com/Frewacom/pywalfox/) install the extension for every one of them
+- the font : ```ttf-iosevka-nerd```
+## For installation 
+- make sure to backup you config files first
+- then run this :
+ ```
+ git clone https://github.com/nizaralheet/niz-dots
+ cd niz-dots 
+ cp -r .config/ ~/.config/ 
+```
 ## Key Bindings 
 
 
@@ -43,7 +49,7 @@ yay -S --needed gdk-pixbuf2  glibc  libnotify  librsvg  pango  python python-cai
 | `mod + E`                                | 📂 Open Thunar file manager                     |
 | `alt + Tab`                              | 🔄 Open Rofi window switcher                    |
 | `mod + ,`                                | 😀 Open Rofi emojis picker                      |
-| `mod + V`                                | 📋 Show CopyQ clipboard manager                 |
+| `mod + V`                                | 📋 Show diodon clipboard manager                 |
 | `mod + R`                                | 🚀 Spawn Rofi app launcher                      |
 | `mod + B`                                | 🌐 Spawn browser                                |
 | **Window Management**                    |                                                |
