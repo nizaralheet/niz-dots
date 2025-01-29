@@ -1,1 +1,0 @@
-/home/nizar/.local/share/icons/Promix/scripts/replace_folder_file.sh

@@ -2,7 +2,7 @@
 - all config files that i have customized for every thing im my system are here
 
 ## ⚠️ Important notes ⚠️
-- QTILE >= 30.0
+- QTILE & qtile-extras >= 30.0 
 - make sure to make the autostart.sh excutable by running this command ```chmod +x .config/qtile/autostart.sh```
 
 ## Dependencies 
@@ -10,13 +10,13 @@
 -Run this command on arch to install the Dependencies 
 for yay :
 ```
-yay -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd diodon betterlockscreen
+yay -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd diodon betterlockscreen  xidlehook plank
 ```
 for paru :
 ```
-paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd-git diodon betterlockscreen
+paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd-git diodon betterlockscreen xidlehook plank
 ```
-- For the gtk theme and icons i use flatcolor theme and Promix icons they are in  [wpgtk-templates](https://github.com/deviantfero/wpgtk-templates) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
+- For the gtk theme and icons i use flatcolor theme and lina-nord-dark theme they came with [wpgtk](https://github.com/deviantfero/wpgtk/wiki/Installation) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
 - For themeing [chromium based browsers](https://github.com/metafates/ChromiumPywal) and firefox [python-pywalfox](https://github.com/Frewacom/pywalfox/) install the extension for every one of them
 - the font : ```ttf-iosevka-nerd```
 ## For installation 
@@ -25,7 +25,9 @@ paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-
  ```
  git clone https://github.com/nizaralheet/niz-dots
  cd niz-dots 
- cp -r .config/ ~/.config/ 
+ cp -r .config/ ~/.config/
+ wpg -ta .config/dunst/dunstrc
+ cp -r ~/.config/wpg/config_dunst_dunstrc.base ~/.config/wpg/templates/ 
 ```
 ## Key Bindings 
 
