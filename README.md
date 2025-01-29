@@ -1,5 +1,15 @@
 # wpgtk dynamic RICE
 - all config files that i have customized for every thing im my system are here
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6761664b-9d31-4a6d-9085-2d3a6df7e37c" alt="new1" width="45%" style="margin-right: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/a52024e8-7c9d-4e22-9764-6df6b6dce2f4" alt="new3" width="45%"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2b959804-6a56-467f-a620-8ed6711e2e8c" alt="new2" width="60%"/>
+</p>
+
+
 
 ## ⚠️ Important notes ⚠️
 - QTILE & qtile-extras >= 30.0 
