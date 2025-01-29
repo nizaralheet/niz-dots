@@ -10,7 +10,7 @@ xidlehook\
     'xset dpms force off' \
     'xset dpms force on' \
   --timer 400 \
-    'setxkbmap us ; betterlockscreen -l dimblur' \
+    'xkb-switch -s us ; betterlockscreen -l dimblur' \
     '' \
   --timer 400 \
     'systemctl suspend' \

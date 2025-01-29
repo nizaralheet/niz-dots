@@ -21,7 +21,7 @@ import time
 import subprocess
 import json
 import qtile_extras.hook
-from libqtile import bar, qtile, extension ,hook
+from libqtile import backend, bar, qtile, extension ,hook
 from qtile_extras import widget ,layout 
 from qtile_extras.widget import decorations
 from qtile_extras.widget.decorations import RectDecoration
@@ -29,9 +29,8 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import send_notification
 from qtile_extras.popup.toolkit import PopupRelativeLayout, PopupSlider, PopupText, PopupImage ,PopupWidget ,PopupAbsoluteLayout
-from functions import keylay ,show_power_menu , qtile_menu, show_power_profile , show_cal
-
-
+from functions import calendar, show_power_menu , qtile_menu, show_power_profile 
+from qtile_extras.popup.templates.mpris2 import COMPACT_LAYOUT, DEFAULT_LAYOUT
 
 colors = os.path.expanduser('~/.cache/wal/colors.json')
 colordict = json.load(open(colors))
@@ -53,7 +52,6 @@ Color14=(colordict['colors']['color14'])
 Color15=(colordict['colors']['color15'])
 
 Btop=({"Button1":lazy.spawn("kitty -e btop")})
-
 
 mod = "mod4"
 alt = "mod1"
@@ -101,14 +99,13 @@ def autostart():
 if "resume_hook_registered" not in globals():
     @hook.subscribe.resume
     def wakeup():
-        time.sleep(1)
+        time.sleep(3)
         send_notification("Welcome Back !", "The system successfully awakened from sleep")
-
     # Set the flag to avoid re-registering
     resume_hook_registered = True
 
 def run_script(qtile):
-    an=os.path.expanduser("~/an-test.sh")
+    an=os.path.expanduser("~/.config/rofi/theme-rofi.sh")
     subprocess.call(['/bin/bash', an])
 
 
@@ -122,37 +119,39 @@ def run_script(qtile):
 #           __/ |                               __/ |    #
 #          |___/                               |___/     #
 ##########################################################
+
+
 keys = [
+
+    Key([mod,"shift"],"e",lazy.spawn("kitty -e nvim"),desc="spawn neovim"),
+    Key (["control","shift"],33,
+         lazy.spawn("firefox --private-window"),desc="open firefox private-window"
+    ),
+    
     Key (
         [],"Print",
         lazy.spawn("flameshot gui"),desc="take a screenshot by flameshot"
-        ),
-    Key ([mod],46,# this is mod + L to lock the device 
+    ),
+    Key ([mod],"l",
          lazy.spawn("betterlockscreen -l dimblur"),desc="lock the screen using betterlockscreen"
-         ),
-    Key([mod],34,# it's mod + [
+    ),
+    Key([mod],34,
         lazy.function(run_script),desc="run a wallpaper select rofi script"
-        ),
-   # i have the keys binded to the keycode so isntall xorg-xev to see all keys
-    Key([mod],26,
+    ),
+    # i have the keys binded to the keycode so isntall xorg-xev to see all keys
+    Key([mod],'e',
         lazy.spawn("thunar"),desc="mod+e open thunar"
     ),
-    Key([alt],"Tab",lazy.run_extension(
-        extension.WindowList(dmenu_command="rofi -show window")),desc="alt+tab opens rofi window"
+    Key([alt],"Tab",lazy.spawn("skippy-xd --expose --next"),desc="alt+tab opens rofi window"
     ),
-    Key([mod],59,
-         lazy.spawn("rofi -show emoji -modi emoji"),desc="mod+comma opens rofi emojis"
+    Key([mod],'comma',
+         lazy.spawn("rofi -config ~/.config/rofi/emoji.rasi -show emoji -modi emoji -emoji-format '{emoji}'"),desc="mod+comma opens rofi emojis"
     ),
     # that is for my clipboard add yours
-    Key([mod],55,
+    Key([mod],"v",#55,
         lazy.spawn("/usr/bin/diodon"),desc="mod+v shows copyq clipboard"
     ),
-    # this to change the keyboardlayout if you are multi laguage you could change the lang at keyboardlayout widget
-    Key([alt], "Shift_L",
-        lazy.widget["keyboardlayout"].next_keyboard(),
-        lazy.function(keylay),desc="this is the function that make the languag layout pop up"
-    ),
-
+    
     # here is the brightness control
     Key([], "XF86MonBrightnessUp",
         lazy.spawn("brightnessctl set +5%"),desc="raise the brighteness level"
@@ -188,7 +187,6 @@ keys = [
     Key([mod], "Right",
         lazy.layout.right(), desc="Move focus to right"
     ),
-
     Key([mod], "Down",
         lazy.layout.down(), desc="Move focus down"
     ),
@@ -241,7 +239,7 @@ keys = [
     ),
 
     Key(
-        [mod], 57,
+        [mod],'n',
         lazy.layout.normalize(), desc="mod + n Reset all window sizes"
     ),
     # Toggle between split and unsplit sides of stack.
@@ -266,39 +264,39 @@ keys = [
     ),
 
     Key(
-        [mod],25,
+        [mod],'w',
         lazy.window.kill(), desc="mod+w Kill focused window"
     ),
 
     Key(
-        [mod],41,
+        [mod],'f',
         lazy.window.toggle_fullscreen(),desc="mod+f Toggle fullscreen",
     ),
-    Key ([mod],58,
+    Key ([mod],'m',
          lazy.window.toggle_minimize(),desc="mod + m will toggle minimize"
          ),
 
     Key(
-        [mod], 28,
+        [mod],'t',
         lazy.window.toggle_floating(), desc="mod +t Toggle floating"
     ),
 
     Key(
-        [mod, "control"], 27,
+        [mod, "control"],'r',
         lazy.reload_config(), desc="mod +ctrl + r Reload the config"
     ),
 
     Key(
-        [mod, "control"], 24,
+        [mod, "control"],'q',
         lazy.shutdown(), desc="mod + ctrl +q Shutdown Qtile"
     ),
     Key(
-        [mod], 27,
+        [mod], 'r',
         lazy.spawn("rofi -show drun"), desc="mod +r Spawn rofi app laucher"
     ),
     # edit and add the browser you use
     Key(
-        [mod], 56,
+        [mod], 'b',
         lazy.spawn("firefox"), desc="mod +b spawn brave browser"
     ),
     Key([
@@ -363,6 +361,7 @@ for i in groups:
 #               /____/                            #
 ###################################################
 layouts = [
+
       #Try more layouts by unleashing below layouts.
      #layout.Stack(num_stacks=2),
      #layout.Bsp(),
@@ -381,18 +380,25 @@ layouts = [
          border_width= 2
     ),
     layout.MonadTall(
-         margin=7,
-         border_focus=Color7,
-         border_normal=Color1,
-         border_on_single=True,
-         border_width= 2
+        auto_maximize=True,
+        change_ratio=0.10,
+        min_secondary_size = 150,
+        change_size=20,
+        ratio=0.55,
+        min_ratio=0.30,
+        max_ratio=0.75,
+        margin=7,
+        border_focus=Color1,
+        border_normal=Color0,
+        border_on_single=False,
+        border_width= 2
     ),
 
     layout.Max(
-         margin=7,
+         margin=0,
          border_focus=Color7,
          border_normal= Color1 ,
-         border_width=2
+         border_width=0
     ),
     layout.Spiral(margin=7,
          border_focus=Color7,
@@ -507,6 +513,10 @@ VOLUME_POPUP = PopupRelativeLayout(
     ],
 )
 
+def Current_Kb_Layout():
+    the_kb_layout = subprocess.check_output("xkb-switch -p | tr 'a-z' 'A-Z'", shell=True, text=True)
+    the_kb_layout =the_kb_layout.strip() 
+    return the_kb_layout
 
 
 ##################################################
@@ -521,19 +531,20 @@ VOLUME_POPUP = PopupRelativeLayout(
 
 screens = [
     Screen(
-        wallpaper="",#.config/qtile/wallpaper7.jpg",
-        wallpaper_mode="fill",
         top=bar.Bar
         (
             [
-                widget.PulseVolumeExtra(step=5,mode="popup",popup_layout=VOLUME_POPUP,limit_max_volume=True,),
+                #widget.PulseVolumeExtra(step=5,mode="popup",popup_layout=VOLUME_POPUP,limit_max_volume=True,),
+                 
 
+                #there are some good shit that i can do here
+                #widget.Mpris2(popup_layout=COMPACT_LAYOUT),
                 widget.Spacer(
                     width=10,
                     length=0,
                     background="#00000070",
                 ),
-                
+
                 widget.Spacer(length=7,**circle,background="#00000070"),
                 widget.TextBox(
 
@@ -594,7 +605,7 @@ screens = [
                     background="00000070", 
                     #foreground=Color0,
                     spacing="2",
-                    mouse_callbacks={"Button1":lazy.function(show_cal)},
+                    mouse_callbacks={"Button1":lazy.function(calendar)},
 
                     **circle
                 ),
@@ -611,28 +622,28 @@ screens = [
                 widget.OpenWeather(
                     app_key = "4cf3731a25d1d1f4e4a00207afd451a2",
                     cityid = "2643743",#serch your city here https://openweathermap.org/find and you gonna find the id at the link like this for london https://openweathermap.org/city/2643743
-                    format = " {weather} {icon} {main_temp:.0f}°C",
+                    format = " {weather} <span font_desc='Symbols Nerd Font Regular 16'>{icon}</span> {main_temp:.0f}°C",
                     metric = True,
                     padding=5,
                     fontsize = 16,
                     weather_symbols={
                         "Unknown": "",
-                        "01d": " ",
+                        "01d": " ",
                         "01n": " ",
-                        "02d": "",
-                        "02n": " ",
-                        "03d": " ",
-                        "03n": " ",
-                        "04d": " ",
-                        "04n": " ",
-                        "09d": "⛆ ",
-                        "09n": "⛆ ",
-                        "10d": "",
-                        "10n": " ",
-                        "11d": "🌩",
-                        "11n": "🌩",
-                        "13d": "❄",
-                        "13n": "❄",
+                        "02d": " ",
+                        "02n": "󰼱 ",
+                        "03d": "󰖐 ",
+                        "03n": "󰖐 ",
+                        "04d": " ",
+                        "04n": " ",
+                        "09d": "󰖖 ",
+                        "09n": "󰖖 ",
+                        "10d": " ",
+                        "10n": " ",
+                        "11d": "󰖓 ",
+                        "11n": "󰖓 ",
+                        "13d": " ",
+                        "13n": " ",
                         "50d": "🌫",
                         "50n": "🌫",
                     },
@@ -646,6 +657,16 @@ screens = [
                 widget.Spacer(length = bar.STRETCH,background="#00000070"),
 
 
+#                widget.Visualiser(
+#                    background="#00000070",
+#                    bar_colour=Color7,
+#                    bars=33,
+#                    spacing=3,
+#                    width=150,
+#
+#                ),
+#
+                widget.Spacer(length=5,background="00000070"),
 
                 widget.TextBox(
                     fontsize=16,
@@ -676,7 +697,6 @@ screens = [
                     update_interval=1,
                     **circle
                 ),
-               
                 widget.ThermalSensor(
                     mouse_callbacks=Btop,
                     background="#00000070",
@@ -706,7 +726,7 @@ screens = [
                         colour_have_updates="ffffff",
                         colour_no_updates="ffffff",
                         fontsize=15,
-                        display_format=" !{updates}",
+                        display_format=" {updates}",
                         mouse_callbacks={"Button1":lazy.spawn("kitty ./.config/qtile/update.sh")},
                         **circle,
                     ),
@@ -732,50 +752,70 @@ screens = [
 
                 widget.Spacer(length=9,**circle),
 
-                widget.PulseVolume(
-                    **circle,
-                    icon_size=20,
-                    theme_path="~/.config/qtile/assets/",
-                ),
+                
+                #widget.PulseVolume(
+                #    **circle,
+                #    icon_size=20,
+                #    theme_path="~/.config/qtile/assets/",
+                #),
+               
+               #widget.Spacer(length=-8,**circle),
+               widget.Volume(
+                   **circle,
+               ),
+               #widget.PulseVolumeExtra(
+               #    **circle,
+               #    mode="bar",
+               #    bar_height=4,
+               #    bar_colour_high=Color7,
+               #    bar_colour_loud=Color7,
+               #    bar_colour_mute=Color7,
+               #    bar_colour_normal=Color7,
+               #    bar_background = Color1,
+               #    background = Color1,
+               #    bar_width=40,
 
-                widget.Spacer(length=-8,**circle),
-
-                widget.PulseVolumeExtra(
-                    **circle,
-                    mode="bar",
-                    bar_colour_high=Color1,
-                    bar_colour_loud=Color1,
-                    bar_colour_mute=Color1,
-                    bar_colour_normal=Color1,
-                    bar_width=40,
-
-                    unmute_format='{volume}% ',
-                    fontsize=15
-                ),
-                 widget.KeyboardLayout(
-                    configured_keyboards=['us','ara'],#you could remove this one if you dont need it 
-                    background="#00000070",
-                    padding=7,
+               #    unmute_format='',
+               #    fontsize=15
+               #),
+               widget.GenPollText(
+                    func=Current_Kb_Layout,
+                    mouse_callbacks=({"Button1":lazy.spawn("xkb-switch -n")}),
+                    update_interval=0.1,
                     **circle
-                ),
+               ),
+               #widget.KeyboardLayout(
+               #    configured_keyboards=['us','ara'],#you could remove this one if you dont need it 
+               #    background="#00000070",
+               #    option="grp:alt_shift_toggle",         # Set your layout toggle shortcut
+               #    padding=7,
+               #    **circle
+               #),
 
 
-                widget.WiFiIcon(
+               #widget.Systray(
+               #    background="#00000070",
+               #    **circle,
+               #    icon_size=30,
+               #), 
+               widget.WiFiIcon(
                     background="#00000070",
                     active_colour="#E1E1E1",
                     padding_x=7,
                     padding_y=3,
+                    mouse_callbacks={"Button1":lazy.spawn("nm-connection-editor")},
                     **circle
-                ),
+                    
+               ),
 
-                widget.UPowerWidget(
-                    background = "#00000070",
-                    border_colour = "#ffffff",
-                    border_critical_colour = "#cc0000",
-                    border_charge_colour = "#ffffff",
-                    fill_low = "#ffff00",
-                    fill_charge = "#00cc66",
-                    fill_critical = "#cc0000",
+               widget.UPowerWidget(
+                   background = "#00000070",
+                   border_colour = "#ffffff",
+                   border_critical_colour = "#cc0000",
+                   border_charge_colour = "#ffffff",
+                   fill_low = "#ffff00",
+                   fill_charge = "#00cc66",
+                   fill_critical = "#cc0000",
                     fill_normal = "#ffffff",
                     percentage_low = 0.4,
                     percentage_critical = 0.25,
@@ -794,21 +834,21 @@ screens = [
 
                 
                 
-                widget.TextBox(
-                        "⏻ ",
-                        **circle1,
-                        padding=20,
-                        fontsize=15,
-                        mouse_callbacks={"Button1":lazy.function(show_power_menu)}
-                ),
+               widget.TextBox(
+                       "⏻ ",
+                       **circle1,
+                       padding=20,
+                       fontsize=15,
+                       mouse_callbacks={"Button1":lazy.function(show_power_menu)}
+               ),
 
-                widget.Spacer(length=6,**circle,background="#00000070"),
+               widget.Spacer(length=6,**circle,background="#00000070"),
 
-                widget.Spacer(
-                    width=10,
-                    length=0,
-                    background="#00000070",
-                ),
+               widget.Spacer(
+                   width=10,
+                   length=0,
+                   background="#00000070",
+               ),
 
             ],
 
@@ -874,19 +914,19 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
+        Match(wm_class="nm-connection-editor"),
         Match(wm_class="qalculate-gtk"),  # gitk
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(wm_class="copyq"),
-        Match(wm_class="krunner"),
-        Match(wm_class="plasma-emojier"),
         Match(wm_class="wpg"),
         Match(wm_class="lxappearance"),
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="korganizer"),  # GPG key password entry
+        Match(wm_class="cairo-dock"),
 
     ]
 )

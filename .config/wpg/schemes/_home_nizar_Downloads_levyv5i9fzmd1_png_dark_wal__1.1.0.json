@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/levyv5i9fzmd1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0810",
+        "foreground": "#9eccd7",
+        "cursor": "#9eccd7"
+    },
+    "colors": {
+        "color0": "#0B0810",
+        "color1": "#9D2221",
+        "color2": "#DB5E30",
+        "color3": "#B64F4A",
+        "color4": "#EF9F55",
+        "color5": "#336C8E",
+        "color6": "#B46D8A",
+        "color7": "#9eccd7",
+        "color8": "#6e8e96",
+        "color9": "#9D2221",
+        "color10": "#DB5E30",
+        "color11": "#B64F4A",
+        "color12": "#EF9F55",
+        "color13": "#336C8E",
+        "color14": "#B46D8A",
+        "color15": "#9eccd7"
+    }
+}

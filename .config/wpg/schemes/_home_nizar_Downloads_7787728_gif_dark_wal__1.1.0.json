@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/7787728.gif",
+    "alpha": "100",
+    "special": {
+        "background": "#141312",
+        "foreground": "#e7e6e6",
+        "cursor": "#e7e6e6"
+    },
+    "colors": {
+        "color0": "#141312",
+        "color1": "#81807F",
+        "color2": "#8F8E8D",
+        "color3": "#A09F9F",
+        "color4": "#B1B1B0",
+        "color5": "#C0C0BF",
+        "color6": "#D0D0CF",
+        "color7": "#e7e6e6",
+        "color8": "#a1a1a1",
+        "color9": "#81807F",
+        "color10": "#8F8E8D",
+        "color11": "#A09F9F",
+        "color12": "#B1B1B0",
+        "color13": "#C0C0BF",
+        "color14": "#D0D0CF",
+        "color15": "#e7e6e6"
+    }
+}

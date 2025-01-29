@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/wallpapers/wallpaper6.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#020609",
+        "foreground": "#c6d0c0",
+        "cursor": "#c6d0c0"
+    },
+    "colors": {
+        "color0": "#020609",
+        "color1": "#516C5A",
+        "color2": "#69815E",
+        "color3": "#738E73",
+        "color4": "#839C7E",
+        "color5": "#7E9980",
+        "color6": "#93AB8A",
+        "color7": "#c6d0c0",
+        "color8": "#8a9186",
+        "color9": "#516C5A",
+        "color10": "#69815E",
+        "color11": "#738E73",
+        "color12": "#839C7E",
+        "color13": "#7E9980",
+        "color14": "#93AB8A",
+        "color15": "#c6d0c0"
+    }
+}

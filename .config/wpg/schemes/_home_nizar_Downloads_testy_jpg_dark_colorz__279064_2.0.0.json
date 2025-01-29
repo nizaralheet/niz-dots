@@ -1,0 +1,28 @@
+{
+    "checksum": "a5c4eccb43786c556ff40a6381c7a340",
+    "wallpaper": "/home/nizar/Downloads/testy.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#130606",
+        "foreground": "#c4c0c0",
+        "cursor": "#c4c0c0"
+    },
+    "colors": {
+        "color0": "#130606",
+        "color1": "#aa3b3b",
+        "color2": "#b32925",
+        "color3": "#9996a9",
+        "color4": "#aa7e8c",
+        "color5": "#aa656c",
+        "color6": "#ac5051",
+        "color7": "#c4c0c0",
+        "color8": "#6a5757",
+        "color9": "#aa3b3b",
+        "color10": "#b32925",
+        "color11": "#9996a9",
+        "color12": "#aa7e8c",
+        "color13": "#aa656c",
+        "color14": "#ac5051",
+        "color15": "#c4c0c0"
+    }
+}

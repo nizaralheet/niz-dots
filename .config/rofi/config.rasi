@@ -1,12 +1,58 @@
-configuration {
-  timeout {
+configuration 
+{
+  icon-theme: "Promix";
+  terminal: "kitty";
+  
+  lines:6;
+
+  timeout
+  {
       action: "kb-cancel";
       delay:  0;
   }
-  filebrowser {
+  filebrowser
+  {
       directories-first: true;
       sorting-method:    "name";
   }
-}
-@theme "/home/nizar/.config/rofi/themes/dynamic-theme.rasi"
+  display-window: "Windows";
+	display-windowcd: "Window CD";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Apps";
+	display-combi: "Combi";
+	display-keys: "Keys";
+	display-filebrowser: "Files";
+  drun-categories: "";
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	drun-use-desktop-cache: false;
+	drun-reload-desktop-cache: false;
+	drun
+  {
+		/** Parse user desktop files. */
+		parse-user:   true;
+		/** Parse system desktop files. */
+		parse-system: true;
+  }
+  window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: false;
+  
 
+  modi: "drun,run,filebrowser,window";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
+	show-icons: true;
+}
+
+window {
+    width:  40.0000% ;
+    height: 60.0000% ;
+}@theme "/home/nizar/.config/rofi/themes/dynamic-theme.rasi"

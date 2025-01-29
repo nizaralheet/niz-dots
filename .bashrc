@@ -23,15 +23,10 @@ function pywal() {
 
 
 PS1=$'\n\[\e[37m\]\u256D\u2500\u2500\[\e[35m\] \u222B ( \u ) \[\e[37m\]\u2500\[\e[48m\] [ \W ]\[\e[37m\]\n\u2570\u2500\u2500\u2500\u25b6\[\e[37m\] '
-# BTW THIS IS A KING SYMPOL \u2654 
 #PS1='[ \u @ \h \W]\$ '
 
 
 
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-# Not supported in the "fish" shell.
 (cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)

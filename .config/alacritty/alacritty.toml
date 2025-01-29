@@ -1,9 +1,0 @@
-[window]
-startup_mode= "windowed"
-dynamic_padding= true 
-opacity= 0.82
-padding={x=25,y=20}
-[font]
-size =14.0
-normal ={ family = "Source Code Pro", style = "Regular" }
-bold ={family = "mono" ,style ="Bold"}

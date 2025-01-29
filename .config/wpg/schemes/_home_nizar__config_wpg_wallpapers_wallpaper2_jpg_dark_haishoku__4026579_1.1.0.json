@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/nizar/.config/wpg/wallpapers/wallpaper2.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#141617",
+        "foreground": "#fefeff",
+        "cursor": "#fefeff"
+    },
+    "colors": {
+        "color0": "#141617",
+        "color1": "#5b5440",
+        "color2": "#58686c",
+        "color3": "#4b4031",
+        "color4": "#187aa5",
+        "color5": "#113b59",
+        "color6": "#1b5877",
+        "color7": "#c4c4c5",
+        "color8": "#2b2f31",
+        "color9": "#807249",
+        "color10": "#658e99",
+        "color11": "#695437",
+        "color12": "#12a3e2",
+        "color13": "#0f4d7a",
+        "color14": "#1975a4",
+        "color15": "#fefeff"
+    }
+}

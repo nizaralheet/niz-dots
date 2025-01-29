@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/nizar/.config/wpg/wallpapers/mountain.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#070808",
+        "foreground": "#dbf2f4",
+        "cursor": "#dbf2f4"
+    },
+    "colors": {
+        "color0": "#070808",
+        "color1": "#7b8c93",
+        "color2": "#72828c",
+        "color3": "#a8a9a9",
+        "color4": "#4d5a61",
+        "color5": "#8e9ba1",
+        "color6": "#a1abb4",
+        "color7": "#a3b4b5",
+        "color8": "#1e2222",
+        "color9": "#8ebdd0",
+        "color10": "#83acc6",
+        "color11": "#c4f1f1",
+        "color12": "#587889",
+        "color13": "#a4d0e4",
+        "color14": "#bbdfff",
+        "color15": "#dbf2f4"
+    }
+}

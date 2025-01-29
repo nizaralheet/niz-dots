@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/tt/wallhaven-jxjmwm.png",
+    "alpha": "100",
+    "special": {
+        "background": "#111019",
+        "foreground": "#c8e3f2",
+        "cursor": "#c8e3f2"
+    },
+    "colors": {
+        "color0": "#111019",
+        "color1": "#4B5CAB",
+        "color2": "#8A79B4",
+        "color3": "#738FBE",
+        "color4": "#7094D6",
+        "color5": "#B69EB5",
+        "color6": "#9AA1DC",
+        "color7": "#c8e3f2",
+        "color8": "#8c9ea9",
+        "color9": "#4B5CAB",
+        "color10": "#8A79B4",
+        "color11": "#738FBE",
+        "color12": "#7094D6",
+        "color13": "#B69EB5",
+        "color14": "#9AA1DC",
+        "color15": "#c8e3f2"
+    }
+}

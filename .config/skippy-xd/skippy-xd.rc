@@ -1,0 +1,196 @@
+# Copy this to ~/.config/skippy-xd/skippy-xd.rc and edit it to your liking
+#
+# File Syntax:
+# Comments must be on their own seperate lines that start with a #
+#
+# colors can be anything XAllocNamedColor can handle
+# (like "black" or "#000000")
+#
+# fonts are Xft font descriptions
+#
+# booleans are "true" or anything but "true" (-> false)
+#
+# opacity is an integer in the range of 0-255
+#
+
+# For system config options, stop and then start new skippy daemon
+# To reload config options
+# All other config options can be reloaded on the fly
+# With skippy-xd --config-reload
+
+[system]
+
+# File path of skippy-xd pipe daemon communication
+pipePath = /tmp/skippy-xd-fifo
+
+# Frequency to update pixmaps
+updateFreq = 60.0
+
+# This queries the list of windows
+# Depending on your window manager, you may want to choose between
+# XQueryTree, _NET_CLIENT_LIST, _WIN_CLIENT_LIST
+# If you see missing windows, or windows that you did not expect,
+# Try a different option
+clientList = _NET_CLIENT_LIST
+
+# when compositors such as picom are not used
+# turn on pseudo-transparency
+pseudoTrans = true
+
+[layout]
+
+# Wait time before displaying switch previews
+switchWaitDuration = 100
+
+# Set = 0 to switch off animations
+# For switch, there is never animation
+animationDuration = 200
+
+# Relative minimal distance between windows
+distance = 50
+
+# exposeLayout=xd uses the same layout as switcher, maximizing screen estate
+# exposeLayout=boxy tends to preserve window positions, thus guiding the eye more
+exposeLayout = boxy
+
+# Whether to show the window bigger than its original size
+allowUpscale = true
+
+[filter]
+
+# in multi-monitor setting, whether to filter windows by monitor
+showOnlyCurrentMonitor = false
+
+# Choose whether to show shadow windows:
+# windows that are minimized, shaded, or on other virtual desktops
+showShadow = true
+
+# Choose whether to always display sticky windows
+# Switch shows sticky windows regardless of configuration
+showSticky = true
+
+# For switch and expose,
+# Whether to limit window select on current virtual desktop
+# Or allow window selection on all virtual desktops
+# Paging always show all desktops
+switchShowAllDesktops = true
+exposeShowAllDesktops = true
+[display]
+
+# Shows _NET_WM_WINDOW_TYPE_DESKTOP windows
+# which are usually wallpaper/background related
+showDesktop = true
+
+# Background when skippy-xd is activated
+# To display background wallpaper:
+background = /home/nizar/.config/wpg/.current
+# For tinted background:
+#   background = #00000055
+# For transparent background:
+#   background = None
+#background = #000000ff
+
+# During paging mode, preserve original desktop appearance
+# From the background being applied
+preservePages = true
+
+# Move the mouse cursor when skippy is activated
+movePointer = false
+
+# Whether to display window frames
+includeFrame = false
+
+# Show window previews with rounded corners,
+# with corner radius in pixels
+cornerRadius = 5
+
+# Icon parameters
+showIconsOnThumbnails = true
+preferredIconSize = 70
+
+# Box display when live preview is not available
+# Format: [left|mid|right] [left|mid|right] [COLOR|#FFFFFFFF]
+iconFillSpec = mid mid #333333
+# Box display when live preview is not available, and icon is not available
+# Format: [COLOR|#FFFFFFFF]
+fillSpec = #333333
+
+[normal]
+tint = black
+tintOpacity = 0
+opacity = 255
+
+[highlight]
+tint = #444444
+tintOpacity = 50
+opacity = 255
+
+[shadow]
+tint = #040404
+tintOpacity = 0
+opacity =  255
+
+[panel]
+show = false
+backgroundTinting = true
+allowOverlap = true
+
+[tooltip]
+show = true
+showDesktop = false
+showMonitor = false
+offsetX = 0
+offsetY = -5
+width = 0.8
+border = #ffffff
+background = #404040
+opacity = 255
+text = #ffffff
+textShadow = black
+font = fixed-11:weight=bold
+
+[bindings]
+
+# key* = is a list of valid XWindows KeySym identifiers, case
+# sensitive and <space> seperated list. Run the program 'xev' to find them.
+
+keysUp = Up
+keysDown = Down
+keysLeft = Left
+keysRight = Right
+
+keysSelect = Return space
+keysCancel = Escape
+keysNext = n
+keysPrev = p
+
+keysIconify = 1
+keysShade = 2
+keysClose = 3
+
+# mouse button bindings, options include
+# "no": do nothing
+# "focus": select window
+# "iconify": minimize window
+# "shade-ewmh": toggle window shade
+# "close-icccm": close window with ICCCM method
+# "close-ewmh": lcose window with EWMH method
+# "destroy": forcefully destroy window
+# "keysPrev": focus on previous window
+# "keysNext": focus on next window
+
+miwMouse1 = focus
+#miwMouse2 = close-ewmh
+miwMouse3 = no
+miwMouse4 = keysNext
+miwMouse5 = keysPrev
+
+# The "pivot" keys are the Alt in Alt-Tab
+# The key has to be held for skippy-xd to activate
+# And when the key is released, skippy-xd selects the highlighted window.
+# If there are no entries to the pivot key,
+# The behaviour is to toggle skippy-xd activation
+# And no keys need to be held or released
+keysPivotSwitch = Alt_L
+keysPivotExpose =  Alt_L
+keysPivotPaging = 

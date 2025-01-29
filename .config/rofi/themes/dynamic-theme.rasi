@@ -1,6 +1,6 @@
 @import "~/.cache/wal/colors-rofi-dark.rasi"
 * {
-    font :" SourceCodePro 14";
+    font :" Iosevka Nerd Font Mono Bold 14";
     selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
    // foreground:                  rgba ( 255, 255, 255, 100 % );
     normal-foreground:           @foreground;
@@ -24,7 +24,7 @@
     border-color:                @foreground;
     spacing:                     2;
    // separatorcolor:              rgba ( 38, 139, 210, 100 % );
-    urgent-background:           transparent;
+    //urgent-background:           transparent;
     selected-urgent-background:  rgba ( 38, 139, 210, 100 % );
     alternate-urgent-foreground: @urgent-foreground;
     background-color:            rgba ( 0, 0, 0, 0 % );
@@ -34,10 +34,10 @@
 }
 window {
     background-color: @background;
-    border:           75;
-    border-color:#00000009;
+    border:           0;
+    border-color:@urgent-background;
     border-radius: 10px;
-    padding:          5;
+    padding:          30;
 }
 mainbox {
     border:  0;
@@ -55,13 +55,13 @@ textbox {
     text-color: @foreground;
 }
 listview {
-    fixed-height: 0;
+    //fixed-height: 15;
     border:       2px dash 0px 0px ;
     border-color: @selected-active-background;
     spacing:      3px ;
     scrollbar:    true;
     border-radius: 14px;
-
+    lines: 7;
     padding:      10px 0px 0px ;
 }
 element {
@@ -73,6 +73,7 @@ element {
     padding: 2 40 2  ;
 }
 element-text {
+    length:100;
     border-radius: 10px;
     background-color: inherit;
     text-color:       inherit;
@@ -131,6 +132,8 @@ scrollbar {
     handle-radius: 3px;
     handle-color:@foreground;
     }
+
+//i dont think i'm gonna use any of these, maybe ?
 mode-switcher {
     border:       2px dash 0px 0px ;
     border-color:@selected-active-background;}
@@ -142,6 +145,9 @@ button {
     background-color: @background;
     text-color:       @foreground;
 }
+
+
+//foe down there every thing is ok 
 inputbar {
     spacing:    0;
     text-color: @normal-foreground;
@@ -160,11 +166,12 @@ prompt {
     text-color: @normal-foreground;
 }
 inputbar {
+    padding:    10;
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 textbox-prompt-colon {
     expand:     false;
-    str:        ":";
+    str:        " ::";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
 }

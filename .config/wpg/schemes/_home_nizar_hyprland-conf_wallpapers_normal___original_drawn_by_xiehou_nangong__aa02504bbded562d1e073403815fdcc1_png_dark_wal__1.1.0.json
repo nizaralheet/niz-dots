@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/hyprland-conf/wallpapers/normal/__original_drawn_by_xiehou_nangong__aa02504bbded562d1e073403815fdcc1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#100b08",
+        "foreground": "#e1e5e4",
+        "cursor": "#e1e5e4"
+    },
+    "colors": {
+        "color0": "#100b08",
+        "color1": "#7F827F",
+        "color2": "#9C8774",
+        "color3": "#C2A07C",
+        "color4": "#A6A198",
+        "color5": "#C3BBAD",
+        "color6": "#CDC7B8",
+        "color7": "#e1e5e4",
+        "color8": "#9da09f",
+        "color9": "#7F827F",
+        "color10": "#9C8774",
+        "color11": "#C2A07C",
+        "color12": "#A6A198",
+        "color13": "#C3BBAD",
+        "color14": "#CDC7B8",
+        "color15": "#e1e5e4"
+    }
+}

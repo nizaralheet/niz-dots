@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/bmw-carros-driving.1920x1080.mp4",
+    "alpha": "100",
+    "special": {
+        "background": "#0C0A10",
+        "foreground": "#c5b4b7",
+        "cursor": "#c5b4b7"
+    },
+    "colors": {
+        "color0": "#0C0A10",
+        "color1": "#47423D",
+        "color2": "#333A46",
+        "color3": "#364554",
+        "color4": "#4C4B4E",
+        "color5": "#656369",
+        "color6": "#A65761",
+        "color7": "#c5b4b7",
+        "color8": "#897d80",
+        "color9": "#47423D",
+        "color10": "#333A46",
+        "color11": "#364554",
+        "color12": "#4C4B4E",
+        "color13": "#656369",
+        "color14": "#A65761",
+        "color15": "#c5b4b7"
+    }
+}

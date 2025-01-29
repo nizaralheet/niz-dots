@@ -25,4 +25,5 @@ echo "                                                  ";
 yay -Syu | tee ~/yay-update.log
 echo "Update finished. Check ~/yay-update.log for details."
 echo "Press any key to close..."
-read -n 1
+read -n 1 -s
+exit 0

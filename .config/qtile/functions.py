@@ -1,4 +1,5 @@
-
+import time 
+import psutil
 from qtile_extras.widget import decorations
 import subprocess 
 import os
@@ -111,7 +112,7 @@ def chooser(option):
         are_you_sure(qtile, action)
     return choose
 #######################################
-def show_power_menu(qtile): # this is for power options like power off sleep 
+def show_power_menu(qtile): # this is for power options like power off or  sleep 
     time=subprocess.check_output("uptime -p | awk '{print \"Uptime: \" $2, $3, $4, $5}'", shell=True, text=True)
     time=time.strip()
     controls = [
@@ -130,7 +131,7 @@ def show_power_menu(qtile): # this is for power options like power off sleep
             }
         ),
         PopupImage(
-            filename="/home/nizar/.local/share/icons/Deepin2022-Dark/32@2x/actions/system-suspend.svg",
+            filename="/home/nizar/.local/share/icons/Promix/32@2x/actions/system-suspend.svg",
             pos_x=0.43,
             pos_y=0.3,
             width=0.14,
@@ -256,38 +257,135 @@ def are_you_sure(qtile,action): # it's clear what it dose , it show are you sure
     )
     layout_sure.show(centered=True)
 
-def keylay(qtile): # this one for showin a popup of current keyboard layout after changing it , it will be useful if you use more than one layout 
-    thelay = subprocess.check_output("setxkbmap -query | grep layout | awk '{print $2}' | tr 'a-z' 'A-z'", shell=True, text=True)
-    thelay = "󰌌  : "+thelay.strip()
-    controls=[
-        PopupText(
-            text=thelay,
-            font="Iosevka NF SemiBold",
-            fontsize=22,
-            pos_x=0.0,
-            pos_y=0.0,
-            height=1,
-            width=1,
-            #v_align="middle",
-            h_align="center",
-            ),
 
 
-    ]
-    layout_kb= PopupRelativeLayout(
-        qtile,
-        width=200,
-        height=60,
-        background=Color1,
-        border=Color7,
-        border_width=0,
-        controls=controls,
-        close_on_click=True,
-        hide_on_timeout=2,
-    )
-    layout_kb.show(x=860,y=140)
 
 
+class CalendarPopup:
+    #test={"Button1": lazy.spawn("kitty")}
+    def __init__(self):
+        self.started = False
+        self.hidden = True
+
+    def _create_layout(self):
+
+        # Get the calendar from the shell command 
+        today = datetime.datetime.now().day
+        cal_output = subprocess.check_output("cal", shell=True, text=True)
+        cal_lines = cal_output.splitlines()
+        highlighted_cal = []
+        for line in cal_lines:
+            highlighted_line = re.sub(
+                rf"\b{today}\b", 
+                f'<span background="#f0f0f0" foreground="#0f0f0f" weight="bold">{today}</span>', 
+                line
+            )
+            highlighted_cal.append(highlighted_line)
+        highlighted_cal_output = "\n".join(highlighted_cal)  
+        #############
+
+        controls = [
+            PopupText(
+                highlighted_cal_output,
+                font="Iosevka NF SemiBold",
+                markup=True,
+                fontsize=18,
+                row=1,
+                col=1,
+                row_span=8,
+                col_span=8,
+                #mouse_callbacks={ "Button1": lambda: self.hide_popup()} # This also works but in a less effective way
+            )
+        ]
+
+        self.layout = PopupGridLayout(
+            qtile,
+            rows=10, 
+            cols=10,
+            height=210,
+            width=250,
+            close_on_click=False,
+            controls=controls,
+            background=Color1,
+            hide_on_timeout=0, 
+        )
+        self.layout.bind_callbacks()  # This seems not to work; tested with other callbacks that work
+
+    def hide_popup(self):
+        self.hidden = True
+        self.layout.hide()
+
+    def toggle(self, x=0, y=0):
+        if not self.started:
+            self._create_layout()
+            self.layout.show(qtile=qtile, x=x, y=y, relative_to_bar=True)
+            self.started = True
+            self.hidden = False
+        elif self.hidden:
+            # self.layout.update_controls(relative_to_bar=True)
+            self.layout.show(qtile=qtile, x=x, y=y, relative_to_bar=True)
+            self.hidden = False
+        else:
+            self.layout.hide()
+            self.hidden = True
+
+show_cal = CalendarPopup()
+
+def calendar(qtile):
+    show_cal.toggle(x=720, y=10)
+'''
+class KBPopup:
+    def __init__(self):
+        self.hidden = True
+        self.started = False
+
+    def _create_layout(self, initial_text):
+        controls = [
+            PopupText(
+                name="layout",
+                text=initial_text,
+                font="Iosevka NF SemiBold",
+                fontsize=22,
+                background=Color1,
+                pos_x=0.0,
+                pos_y=0.0,
+                height=1,
+                width=1,
+                h_align="center",
+            )
+        ]
+        
+        self.layout = PopupRelativeLayout(
+            qtile,
+            width=200,
+            height=60,
+            controls=controls,
+            close_on_click=True,
+            hide_on_timeout=2,
+        )
+
+    def toggle(self, text="", x=0, y=0):
+        if not self.started:
+            self._create_layout(text)
+            self.layout.show(qtile=qtile, x=x, y=y)
+            self.started = True
+            self.hidden = False
+        elif self.hidden:
+            self.layout.update_controls(layout=text)
+            self.layout.show(x=x, y=y)
+            self.hidden = False
+        else:
+            self.layout.hide()
+            self.hidden = True
+
+
+kb_layout = KBPopup()
+
+def keylay(qtile):
+    thelay = subprocess.check_output("setxkbmap -query | grep layout | awk '{print $2}' | tr 'a-z' 'A-Z'", shell=True, text=True)
+    thelay = "󰌌 : " + thelay.strip()
+    kb_layout.toggle(x=860, y=140)       
+''' 
 ##### POWER PROFILE########
 
 def show_power_profile(qtile): # this for power profiles in stead of using the Terminal every time you want to change them 
@@ -347,7 +445,7 @@ def show_power_profile(qtile): # this for power profiles in stead of using the T
         hide_interval=1,
     )
     layout.show(x=1765,y=38)
-
+'''
 def show_cal(qtile): # this function shows the calendar when you click at the date widget 
     # Get today's day as an integer , to be able then to highligte it
     today = datetime.datetime.now().day
@@ -394,4 +492,4 @@ def show_cal(qtile): # this function shows the calendar when you click at the da
     layout_cal.show(relative_to_bar=True,x=720,y=10,hide_on_timeout=False)
 
     
-
+'''

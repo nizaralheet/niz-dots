@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/wallpapers/hmABBx5-4218261662.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#060609",
+        "foreground": "#a6a6ab",
+        "cursor": "#a6a6ab"
+    },
+    "colors": {
+        "color0": "#060609",
+        "color1": "#18244c",
+        "color2": "#3b5c91",
+        "color3": "#558fc3",
+        "color4": "#868ca8",
+        "color5": "#639dd8",
+        "color6": "#7fbdeb",
+        "color7": "#a6a6ab",
+        "color8": "#4d4d58",
+        "color9": "#18244c",
+        "color10": "#3b5c91",
+        "color11": "#558fc3",
+        "color12": "#868ca8",
+        "color13": "#639dd8",
+        "color14": "#7fbdeb",
+        "color15": "#a6a6ab"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/.config/Wallpapers/vagabond-sword-swing.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0B0B",
+        "foreground": "#bbafc7",
+        "cursor": "#bbafc7"
+    },
+    "colors": {
+        "color0": "#0B0B0B",
+        "color1": "#675078",
+        "color2": "#725A86",
+        "color3": "#7B678F",
+        "color4": "#7E70A0",
+        "color5": "#815E8D",
+        "color6": "#88719A",
+        "color7": "#bbafc7",
+        "color8": "#827a8b",
+        "color9": "#675078",
+        "color10": "#725A86",
+        "color11": "#7B678F",
+        "color12": "#7E70A0",
+        "color13": "#815E8D",
+        "color14": "#88719A",
+        "color15": "#bbafc7"
+    }
+}

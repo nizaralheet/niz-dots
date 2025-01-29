@@ -1,0 +1,1 @@
+/home/nizar/.local/share/icons/papwal/scripts/replace_folder_file.sh

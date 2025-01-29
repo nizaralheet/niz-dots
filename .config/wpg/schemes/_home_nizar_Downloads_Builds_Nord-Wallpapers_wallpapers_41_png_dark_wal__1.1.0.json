@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/Builds/Nord-Wallpapers/wallpapers/41.png",
+    "alpha": "100",
+    "special": {
+        "background": "#101521",
+        "foreground": "#ccd1bc",
+        "cursor": "#ccd1bc"
+    },
+    "colors": {
+        "color0": "#101521",
+        "color1": "#676B70",
+        "color2": "#917670",
+        "color3": "#9F917A",
+        "color4": "#C98E74",
+        "color5": "#738384",
+        "color6": "#96A08C",
+        "color7": "#ccd1bc",
+        "color8": "#8e9283",
+        "color9": "#676B70",
+        "color10": "#917670",
+        "color11": "#9F917A",
+        "color12": "#C98E74",
+        "color13": "#738384",
+        "color14": "#96A08C",
+        "color15": "#ccd1bc"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/wallpapers/Simon St\u00e5lenhag Wallpapers-THE ELECTRIC STATE -2017- - by_upload2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#171b1b",
+        "foreground": "#c5c6c6",
+        "cursor": "#c5c6c6"
+    },
+    "colors": {
+        "color0": "#171b1b",
+        "color1": "#5f543e",
+        "color2": "#2f7068",
+        "color3": "#358b7f",
+        "color4": "#887441",
+        "color5": "#5c9b97",
+        "color6": "#a8924a",
+        "color7": "#c5c6c6",
+        "color8": "#515454",
+        "color9": "#5f543e",
+        "color10": "#2f7068",
+        "color11": "#358b7f",
+        "color12": "#887441",
+        "color13": "#5c9b97",
+        "color14": "#a8924a",
+        "color15": "#c5c6c6"
+    }
+}

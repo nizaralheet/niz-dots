@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Glypy
+oldglyph={oldglyph}
+newglyph={newglyph}
+
+#	Front
+oldfront={oldfront}
+newfront={newfront}
+
+#	Back
+oldback={oldback}
+newback={newback}
+
+# those three are the default colors 
+sed -i "s/#1d344f/$oldglyph/g" "$1"
+sed -i "s/#5294e2/$oldfront/g" "$1"
+sed -i "s/#4877b1/$oldback/g" "$1"
+
+
+sed -i "s/$oldglyph/$newglyph/g" "$1"
+sed -i "s/$oldfront/$newfront/g" "$1"
+sed -i "s/$oldback/$newback/g" "$1"

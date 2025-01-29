@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/nizar/Downloads/tt/wallhaven-7p1j8y.png",
+    "alpha": "100",
+    "special": {
+        "background": "#272120",
+        "foreground": "#f6f6f6",
+        "cursor": "#f6f6f6"
+    },
+    "colors": {
+        "color0": "#272120",
+        "color1": "#EA9FA6",
+        "color2": "#F6C8BA",
+        "color3": "#D5BAC8",
+        "color4": "#D3D3D5",
+        "color5": "#FAD7CB",
+        "color6": "#FEE7D8",
+        "color7": "#f6f6f6",
+        "color8": "#acacac",
+        "color9": "#EA9FA6",
+        "color10": "#F6C8BA",
+        "color11": "#D5BAC8",
+        "color12": "#D3D3D5",
+        "color13": "#FAD7CB",
+        "color14": "#FEE7D8",
+        "color15": "#f6f6f6"
+    }
+}
