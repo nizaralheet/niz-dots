@@ -1,4 +1,4 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "~/.config/rofi/themes/wpgtk-colors.rasi"
 * {
     font :" Iosevka Nerd Font Mono Bold 14";
     selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
@@ -32,6 +32,7 @@
     active-background:           rgba ( 57, 57, 57, 100 % );
    // selected-active-background:  rgba ( 38, 139, 210, 100 % );
 }
+
 window {
     background-color: @background;
     border:           0;
@@ -68,7 +69,7 @@ element {
 
     //border-radius: 7px;
     border: 3 10 3;
-    border-color:@background;
+    border-color:transparent;
     children: [ element-icon , element-text ];
     padding: 2 40 2  ;
 }

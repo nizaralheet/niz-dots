@@ -38,7 +38,9 @@ paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-
  cd niz-dots 
  cp -r .config/ ~/.config/
  wpg -ta .config/dunst/dunstrc
- cp -r ~/.config/wpg/config_dunst_dunstrc.base ~/.config/wpg/templates/ 
+ wpg -ta ~/.config/rofi/themes/wpgtk-colors.rasi.bak
+ mv -f .config/wpg/config_dunst_dunstrc.base .config/wpg/templates/ 
+ mv -f .config/wpg/rofi_themes_wpgtk-colors.rasi.base .config/wpg/templates/
 ```
 ## Key Bindings 
 
