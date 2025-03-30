@@ -5,7 +5,6 @@ nohup dunst &
 
 # Run replacement scripts in parallel
 /home/nizar/.local/share/icons/Promix/scripts/replace_script.sh &
-/home/nizar/.local/share/icons/papwal/scripts/replace_script.sh &
 
 # Update icon cache in background
 gtk-update-icon-cache -f -t ~/.local/share/icons/Promix/ &
