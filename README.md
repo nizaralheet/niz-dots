@@ -32,10 +32,7 @@ yay -S qtile qtile-extras kitty diodon wpgtk skippy-xd upower dunst rofi
  git clone https://github.com/nizaralheet/niz-dots
  cd niz-dots 
  cp -r .config/ ~/.config/
- wpg -ta ~/.config/dunst/dunstrc
- wpg -ta ~/.config/rofi/themes/wpgtk-colors.rasi.bak
- mv -f ~/.config/wpg/config_dunst_dunstrc.base ~/.config/wpg/templates/ 
- mv -f ~/.config/wpg/rofi_themes_wpgtk-colors.rasi.base ~/.config/wpg/templates/
+
 ```
 ## Key Bindings 
 
