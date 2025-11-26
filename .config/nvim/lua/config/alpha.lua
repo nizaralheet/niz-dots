@@ -20,7 +20,7 @@ function NvimModule.setup()
     -- Set menu
     dashboard.section.buttons.val = {
         dashboard.button( "e", "   New File" , ":ene <BAR> startinsert <CR>"),
-        dashboard.button( "f", " 󰮗  Find File", ":cd $HOME/ | Telescope find_files<CR>"),
+        dashboard.button( "f", " 󰮗  Find File", ":cd $HOME/ | Telescope find_files hidden=true<CR>"),
         dashboard.button( "r", "   Recent Files"   , ":Telescope oldfiles<CR>"),
         dashboard.button( "c", "   Configuration" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
         dashboard.button( "l", " 󰒲  Lazy ", ":Lazy<CR>"),

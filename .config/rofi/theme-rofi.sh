@@ -13,6 +13,7 @@ done | rofi -dmenu -p "Select Image"  -config .config/rofi/wallpapers.rasi
 # Check if a valid image was selected
 if [[ -n "$selected_image" ]]; then
   # Set the selected image using wpg
+  feh --bg-scale "$image_dir/$selected_image"
   wpg -s "$image_dir/$selected_image"
 fi
 

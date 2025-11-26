@@ -17,18 +17,13 @@
 
 ## Dependencies 
 
--Run this command on arch to install the Dependencies 
+-Run this command on arch to install what you need 
 for yay :
 ```
-yay -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd diodon betterlockscreen  xidlehook plank
+yay -S qtile qtile-extras kitty diodon wpgtk skippy-xd upower dunst rofi 
 ```
-for paru :
-```
-paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-utils python-dbus-next python-dbus-fast python-psutil  qtile-extras  python-pywal wpgtk feh startup-notification  dunst  upower python-attrs python-pulsectl Python-psutil python-pulsectl-asyncio kitty python-pywalfox ttf-iosevka-nerd skippy-xd-git diodon betterlockscreen xidlehook plank
-```
-- For the gtk theme and icons i use flatcolor theme and lina-nord-dark theme they came with [wpgtk here](https://github.com/deviantfero/wpgtk/wiki/Installation) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
-- For themeing [chromium based browsers](https://github.com/metafates/ChromiumPywal) and firefox [python-pywalfox](https://github.com/Frewacom/pywalfox/) install the extension for every one of them
-- the font : ```ttf-iosevka-nerd```
+- For the gtk theme and icons i use [Promix](https://github/nizaralheet/Promix) icons theme and lina-nord-dark theme they it come with [wpgtk here](https://github.com/deviantfero/wpgtk/wiki/Installation) and i use [Promix-icons](https://github.com/nizaralheet/Promix) for rofi 
+- the font : ```ttf-jetbrains-mono-nerd```
 ## For installation 
 - make sure to backup you config files first
 - And make sure that you have all the Dependencies
@@ -50,7 +45,7 @@ paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-
 |------------------------------------------|------------------------------------------------|
 | **System Controls**                      |                                                |
 | `Print`                                  | 🖼️ Take a screenshot with Flameshot            |
-| `mod + L`                                | 🔒 Lock the screen using Betterlockscreen       |
+| `mod + alt + L`                                | 🔒 Lock the screen using Betterlockscreen       |
 | `XF86MonBrightnessUp`                    | 🔆 Increase brightness                          |
 | `XF86MonBrightnessDown`                  | 🔅 Decrease brightness                          |
 | `XF86AudioMute`                          | 🔇 Mute volume                                  |
@@ -83,7 +78,7 @@ paru -S --needed rofi rofimoji rofi-emoji  pango  python python-cairocffi  alsa-
 | `mod + Control + Up`                     | ⬆️ Grow window upward                           |
 | `mod + Shift + Return`                   | 🔀 Toggle between split and unsplit sides of stack |
 | `mod + Tab`                              | 🔄 Toggle between layouts                       |
-| `mod + W`                                | ❌ Kill the focused window                      |
+| `mod + Q`                                | ❌ Kill the focused window                      |
 | `mod + F`                                | 🔳 Toggle fullscreen                            |
 | `mod + M`                                | 🗜️ Toggle minimize                              |
 | `mod + T`                                | 🗂️ Toggle floating                              |

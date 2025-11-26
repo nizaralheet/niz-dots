@@ -51,8 +51,9 @@ configuration
 	normalize-match: true;
 	show-icons: true;
 }
-
+ @theme "/home/nizar/.config/rofi/themes/dynamic-theme.rasi"
 window {
+    transparency: "real";
     width:  40.0000% ;
     height: 60.0000% ;
-}@theme "/home/nizar/.config/rofi/themes/dynamic-theme.rasi"
+}

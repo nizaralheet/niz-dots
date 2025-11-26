@@ -1,17 +1,15 @@
 -- init.lua
 -- Load core modules
+ vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
 require('core.bootstrap').setup()  -- Load bootstrap first
 require('core.options').setup()    -- Then load options
 require('core.keymaps').setup()    -- Then load keymaps
 
--- Initialize lazy.nvim
-require("lazy").setup(require("plugins"), {
-    install = { colorscheme = { "habamax","pywal" } },
-    checker = { enabled = true },
-    change_detection = {
-    enabled = false, -- Completely turn off change detection
-    notify = false,  -- Suppress notifications for plugin updates
-    },
-})
-
+vim.g.neovide_padding_top = 18
+vim.g.neovide_padding_bottom = 18
+vim.g.neovide_padding_right = 25
+vim.g.neovide_padding_left = 25
+vim.o.guifont = "Iosevka NFP Medium:h17"
 require('config').setup()
+

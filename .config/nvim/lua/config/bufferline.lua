@@ -21,8 +21,6 @@ function NvimModule.setup()
 
     -- Key mappings for buffer navigation
 
-    vim.api.nvim_set_keymap('n', '<A-h>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<A-l>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })end
-    vim.api.nvim_set_keymap('n', '<A-w>', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+end
 
 return NvimModule

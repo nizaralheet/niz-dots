@@ -9,10 +9,10 @@ textbox {
   horizontal-align: 1;
 }
 *{
-      font :" Iosevka Nerd Font Mono Bold 19";
+      font :"JetBrainsMono Nerd Font Bold 19";
 }
 configuration {
-  show-icons: true;
+  show-icons: false;
 }
 
 

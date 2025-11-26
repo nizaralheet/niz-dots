@@ -1,0 +1,17 @@
+@import "~/.config/rofi/themes/dynamic-theme.rasi"
+
+
+window {
+  width: 600px;
+  location: northeast;
+  x-offset: -66;
+  y-offset: 60;
+}
+
+entry {
+  placeholder: "  Network...";
+}
+
+listview {
+  lines: 10;
+}

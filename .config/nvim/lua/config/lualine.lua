@@ -1,11 +1,10 @@
 local NvimModule = {}
 
 function NvimModule.setup()
-    vim.cmd([[hi WinBar guibg=NONE]])
-    vim.cmd([[hi WinBarNC guibg=NONE]])
+
     require('lualine').setup {
       options = {
-          theme = 'auto',
+          theme = 'iceberg_dark',
           section_separators = { left = '', right = '' },
           component_separators = { left = '│', right = '│' },
           disabled_filetypes= {
@@ -21,11 +20,12 @@ function NvimModule.setup()
                 'spectre_panel',
                 'toggleterm',
                 'qf',
+                'Lexplore',
           },
 
       },
       sections = {
-        lualine_a = { { icon =' ','mode', separator = { left = '',right = '' }, right_padding = 2 } },
+        lualine_a = { { icon =' ','mode', separator = { left = '',right = '' }, right_padding = 0 } },
         lualine_b = {
             'branch',
             {
@@ -41,12 +41,12 @@ function NvimModule.setup()
         lualine_z = { { 'location', separator = { left ='', right = '' }, left_padding = 2 } }
       },
       inactive_sections = {
-        lualine_a = { { 'filename', separator = { left = '' }, right_padding = 2 } },
+        --lualine_a = { { 'filename', separator = { left = '' }, right_padding = 2 } },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } }
+        --lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } }
       }
      }
 end

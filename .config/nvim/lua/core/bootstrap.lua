@@ -24,11 +24,13 @@ function NvimModule.setup()
         end
     end
     vim.opt.rtp:prepend(lazypath)
-    
+
+    vim.g.python3_host_prog = '/usr/bin/python3'
     -- Set leaders
     vim.g.mapleader = " "
     vim.g.maplocalleader = "\\"
     require("lazy").setup("plugins", {
+
         checker = {
             notify = false, -- disable update notifications
         }
